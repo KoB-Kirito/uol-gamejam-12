@@ -1,0 +1,15 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dqms2gi8bey2i"]
+
+[ext_resource type="Texture2D" uid="uid://dsx57qmda27wu" path="res://assets/movement.png" id="1_3u8vh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_novl3"]
+texture = ExtResource("1_3u8vh")
+0:0/0 = 0
+0:0/0/custom_data_0 = 1
+1:0/0 = 0
+1:0/0/custom_data_0 = 2
+
+[resource]
+custom_data_layer_0/name = "type"
+custom_data_layer_0/type = 2
+sources/0 = SubResource("TileSetAtlasSource_novl3")

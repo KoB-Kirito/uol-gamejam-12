@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://tmc0u7ogbksq"]
+
+[ext_resource type="Texture2D" uid="uid://mvnvxvkvvto8" path="res://target/ring.png" id="1_gdpld"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kswpl"]
+atlas = ExtResource("1_gdpld")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp8cc"]
+atlas = ExtResource("1_gdpld")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itqbd"]
+atlas = ExtResource("1_gdpld")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nu6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kswpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp8cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itqbd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Target" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6nu6o")
+autoplay = "default"
+frame_progress = 0.34221166

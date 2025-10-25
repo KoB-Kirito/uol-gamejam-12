@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cue8tlvvlx0us"]
+
+[ext_resource type="PackedScene" uid="uid://dn1lsg45gnwq3" path="res://pawn/pawn.tscn" id="1_sgobt"]
+[ext_resource type="Texture2D" uid="uid://6gpb0ii7be10" path="res://assets/snow-expansion.png" id="2_en316"]
+
+[node name="RedPawn" instance=ExtResource("1_sgobt")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(0, -8)
+texture = ExtResource("2_en316")
+region_enabled = true
+region_rect = Rect2(256, 176, 32, 32)
