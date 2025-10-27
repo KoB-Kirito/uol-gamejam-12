@@ -1,0 +1,183 @@
+[gd_scene load_steps=21 format=3 uid="uid://bach5m01nqqsa"]
+
+[ext_resource type="Script" uid="uid://bx53dj0d7j5yf" path="res://remote/remote.gd" id="1_e8dq1"]
+[ext_resource type="PackedScene" uid="uid://caxk3fqgcfxt1" path="res://tv/puzzle_player.tscn" id="2_bfn7x"]
+[ext_resource type="Texture2D" uid="uid://rqtvovr38ocy" path="res://remote/remote_fancy.png" id="2_e8dq1"]
+[ext_resource type="PackedScene" uid="uid://dwfi4hf7jd4rc" path="res://remote/trigger_area.tscn" id="3_vjx88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjx88"]
+size = Vector2(350, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8dq1"]
+size = Vector2(50, 600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85ssv"]
+size = Vector2(50, 600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mog03"]
+size = Vector2(350, 50)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjx88"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8dq1"]
+radius = 36.013885
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85ssv"]
+radius = 35.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mog03"]
+radius = 43.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hblhg"]
+radius = 35.014282
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jhrb7"]
+radius = 32.01562
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhkot"]
+radius = 29.068884
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwsue"]
+radius = 35.014282
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30n31"]
+size = Vector2(49, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ylvw"]
+size = Vector2(54, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mway"]
+size = Vector2(59, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6dq7"]
+size = Vector2(57, 20)
+
+[node name="Remote" type="Node2D"]
+script = ExtResource("1_e8dq1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(175, -25)
+shape = SubResource("RectangleShape2D_vjx88")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-25, 300)
+shape = SubResource("RectangleShape2D_e8dq1")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(375, 300)
+shape = SubResource("RectangleShape2D_85ssv")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(175, 625)
+shape = SubResource("RectangleShape2D_mog03")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(175, 300)
+texture = ExtResource("2_e8dq1")
+
+[node name="PuzzlePlayer" parent="." instance=ExtResource("2_bfn7x")]
+position = Vector2(171, 286)
+
+[node name="ArrowUp" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(175, 31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowUp"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_vjx88")
+
+[node name="ArrowLeft" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(51, 102)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowLeft"]
+position = Vector2(40, 35)
+shape = SubResource("CircleShape2D_e8dq1")
+
+[node name="ArrowRight" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(298, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowRight"]
+position = Vector2(-49, 34)
+shape = SubResource("CircleShape2D_85ssv")
+
+[node name="ArrowDown" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(168, 189)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowDown"]
+position = Vector2(0, 20)
+shape = SubResource("CircleShape2D_mog03")
+
+[node name="DLeft" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(54, 365)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DLeft"]
+shape = SubResource("CircleShape2D_hblhg")
+
+[node name="DRight" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(262, 370)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DRight"]
+position = Vector2(-4, -3)
+shape = SubResource("CircleShape2D_jhrb7")
+
+[node name="DDown" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(164, 428)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DDown"]
+shape = SubResource("CircleShape2D_hhkot")
+
+[node name="DUp" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(163, 294)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DUp"]
+position = Vector2(-2, -7)
+shape = SubResource("CircleShape2D_vwsue")
+
+[node name="ELeft" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(58, 576)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ELeft"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_30n31")
+
+[node name="ERight" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(286, 579)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ERight"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2ylvw")
+
+[node name="EUp" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(131, 573)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EUp"]
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_7mway")
+
+[node name="EDown" parent="." instance=ExtResource("3_vjx88")]
+position = Vector2(204, 576)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EDown"]
+position = Vector2(4, 3)
+shape = SubResource("RectangleShape2D_d6dq7")
+
+[connection signal="button_pressed" from="ArrowUp" to="." method="_on_arrow_up_button_pressed"]
+[connection signal="button_pressed" from="ArrowLeft" to="." method="_on_arrow_left_button_pressed"]
+[connection signal="button_pressed" from="ArrowRight" to="." method="_on_arrow_right_button_pressed"]
+[connection signal="button_pressed" from="ArrowDown" to="." method="_on_arrow_down_button_pressed"]
+[connection signal="button_pressed" from="DLeft" to="." method="_on_d_left_button_pressed"]
+[connection signal="button_pressed" from="DRight" to="." method="_on_d_right_button_pressed"]
+[connection signal="button_pressed" from="DDown" to="." method="_on_d_down_button_pressed"]
+[connection signal="button_pressed" from="DUp" to="." method="_on_d_up_button_pressed"]
+[connection signal="button_pressed" from="ELeft" to="." method="_on_e_left_button_pressed"]
+[connection signal="button_pressed" from="ERight" to="." method="_on_e_right_button_pressed"]
+[connection signal="button_pressed" from="EUp" to="." method="_on_e_up_button_pressed"]
+[connection signal="button_pressed" from="EDown" to="." method="_on_e_down_button_pressed"]

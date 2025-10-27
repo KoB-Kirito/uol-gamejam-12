@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxu7gdgqkis6h"]
+
+[ext_resource type="PackedScene" uid="uid://d3gyjsgho13jf" path="res://level/level_1.tscn" id="1_1445c"]
+[ext_resource type="Shader" uid="uid://bs0nvpyenjxp2" path="res://tv/crt.gdshader" id="1_r5whm"]
+[ext_resource type="Script" uid="uid://dirc4xxumnuxx" path="res://tv/puzzle_game.gd" id="1_td4sl"]
+[ext_resource type="Texture2D" uid="uid://b2glygl80ero" path="res://tv/old_tv.png" id="2_r5whm"]
+[ext_resource type="Texture2D" uid="uid://bbycsk0a7v16v" path="res://tv/pixelart-tv-niso.png" id="3_w5w5m"]
+[ext_resource type="PackedScene" uid="uid://bach5m01nqqsa" path="res://remote/remote.tscn" id="5_w5w5m"]
+[ext_resource type="AudioStream" uid="uid://d1fh1niuefo3t" path="res://assets/music/first.mp3" id="7_wou2w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1445c"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_r5whm"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r5whm"]
+resource_local_to_scene = true
+shader = ExtResource("1_r5whm")
+shader_parameter/tex = SubResource("ViewportTexture_r5whm")
+shader_parameter/mask_type = 2
+shader_parameter/curve = 0.0
+shader_parameter/sharpness = 0.6666667
+shader_parameter/color_offset = 0.0
+shader_parameter/mask_brightness = 1.0
+shader_parameter/scanline_brightness = 1.0
+shader_parameter/min_scanline_thickness = 0.5
+shader_parameter/aspect = 0.75
+shader_parameter/wobble_strength = 0.0
+
+[node name="PuzzleGame" type="CanvasLayer"]
+script = ExtResource("1_td4sl")
+next_level = "res://overworld/blank_sprout_lands_tile_map.tscn"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 131.0
+offset_top = 97.0
+offset_right = 643.0
+offset_bottom = 481.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(512, 384)
+render_target_update_mode = 4
+
+[node name="Level1" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_1445c")]
+material = SubResource("ShaderMaterial_1445c")
+
+[node name="CRTShader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_r5whm")
+custom_minimum_size = Vector2(512, 384)
+offset_left = 131.0
+offset_top = 97.0
+offset_right = 131.0
+offset_bottom = 97.0
+
+[node name="OldTv" type="Sprite2D" parent="."]
+position = Vector2(761, 425)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_r5whm")
+
+[node name="PixelartTvNiso" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(415, 347)
+scale = Vector2(20, 20)
+texture = ExtResource("3_w5w5m")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+offset_left = 914.0
+offset_top = 30.0
+offset_right = 1264.0
+offset_bottom = 630.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(350, 600)
+render_target_update_mode = 4
+
+[node name="Remote" parent="SubViewportContainer2/SubViewport" instance=ExtResource("5_w5w5m")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wou2w")
+volume_db = -8.111
+autoplay = true
+
+[connection signal="level_won" from="SubViewportContainer/SubViewport/Level1" to="." method="_on_level_1_level_won"]

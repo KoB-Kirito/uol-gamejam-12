@@ -11,16 +11,25 @@ config_version=5
 [application]
 
 config/name="UOL GameJam 12"
+run/main_scene="uid://cmvnsoetr3ume"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalEventBus="*res://global_event_bus.gd"
+
 [display]
 
-window/size/viewport_width=512
-window/size/viewport_height=384
-window/size/window_width_override=2048
-window/size/window_height_override=1536
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=2560
+window/size/window_height_override=1440
 window/stretch/mode="viewport"
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 
